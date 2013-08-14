@@ -19,7 +19,11 @@ public class Cuts {
         List<Integer> neededLengths = new ArrayList<Integer>();
         Scanner scan = new Scanner(System.in);
         while (scan.hasNextLine()) {
-            neededLengths.add(Integer.valueOf(scan.nextLine().trim()));
+			String trimmed = scan.nextLine().trim();
+			if (trimmed.length() == 0) {
+				break;
+			}
+			neededLengths.add(Integer.valueOf(trimmed));
         }
 
         BoardCutter boardCutter = new BoardCutter(fullSizeBoards, neededLengths);
